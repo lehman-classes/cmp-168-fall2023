@@ -7,5 +7,14 @@ class Variables {
     String num = String.valueOf(a);
 
     System.out.println(num.charAt(1));
+
+    String s;
+    s = "Hello";
+    // String s = "Hello";
+
+    s = "World";
+
+    s = s + "!!!";
+
   }
 }
