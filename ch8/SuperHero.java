@@ -6,6 +6,9 @@ class SuperHero {
   private int age;
   private String power;
   private String realName;
+
+  public static int SUPER_HERO_COUNT = 0;
+
   // one of the super power of classes in Java is that we can hide information.
 
   // constructor
@@ -25,6 +28,14 @@ class SuperHero {
     this.age = age;
     this.power = power;
     this.realName = realName;
+  }
+
+  public void dummyMethodToTestPrimitiveTypePassing(int num) {
+    num = 10;
+  }
+
+  public void dummyMethodToTestReferenceTypePassing(SuperHero superHero) {
+    superHero.name = "Hendrix";
   }
 
   // getters
@@ -63,6 +74,30 @@ class SuperHero {
   // super hero super power
   void superPower() {
     System.out.printf("%s - I have super power of %s\n", name, power);
+  }
+
+  @Override
+  public String toString() {
+    return String.format("Name: %s, Age: %d, Power: %s, Real Name: %s", name, age, power, realName);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    // check if the object is null
+    if (obj == null) {
+      return false;
+    }
+    // check if the object is an instance of SuperHero
+    if (!(obj instanceof SuperHero)) {
+      return false;
+    }
+    // cast the object to SuperHero
+    SuperHero superHero = (SuperHero) obj;
+    // check if the name of the super hero is the same
+    if (this.name.equals(superHero.name) && this.age == superHero.age) {
+      return true;
+    }
+    return false;
   }
 
 }
