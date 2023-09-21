@@ -26,7 +26,8 @@ class App {
 
     // the objects superman and batman are called instances of the class SuperHero
 
-    // this is the things that superman can do
+    // this is the things that susetName(String name) : void
+
     superman.fly();
 
     // this is the things that batman can do
@@ -61,5 +62,11 @@ class App {
     System.out.println("1.Super hero count: " + superman.SUPER_HERO_COUNT);
     System.out.println("2.Super hero count: " + SuperHero.SUPER_HERO_COUNT);
     System.out.println("3.Super hero count: " + batman.SUPER_HERO_COUNT);
+
+    SuperHero.staticMethod();
+    batman.staticMethod();
+
+    Dog dog = new Dog();
+    dog.setAgeInDogYears(10000);
   }
 }

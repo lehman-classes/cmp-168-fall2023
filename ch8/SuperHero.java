@@ -9,6 +9,8 @@ class SuperHero {
 
   public static int SUPER_HERO_COUNT = 0;
 
+  private static int ANOTHER_SUPER_HERO_COUNT = 0;
+
   // one of the super power of classes in Java is that we can hide information.
 
   // constructor
@@ -98,6 +100,12 @@ class SuperHero {
       return true;
     }
     return false;
+  }
+
+  public static void staticMethod() {
+    // System.out.println("instance variable - name" + name);
+    System.out.println("static variable - ANOTHER_SUPER_HERO_COUNT: " + ANOTHER_SUPER_HERO_COUNT);
+    System.out.println("I am a static method");
   }
 
 }
