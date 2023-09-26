@@ -6,6 +6,25 @@ class Animal {
   private double height;
   private boolean isVaccinated;
 
+  public void barkAt(String name) {
+    System.out.println("PARENT: The dog barks at " + name);
+  }
+
+  // Constructor
+  Animal() {
+    System.out.println("A new animal has been created!");
+  }
+
+  Animal(String name) {
+    this();
+    this.name = name;
+  }
+
+  Animal(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+
   // getters
   public String getName() {
     return name;
