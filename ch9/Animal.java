@@ -25,6 +25,14 @@ class Animal {
     this.age = age;
   }
 
+  Animal(String name, double weight, double height, boolean isVac, int age) {
+    this.name = name;
+    this.weight = weight;
+    this.height = height;
+    this.isVaccinated = isVac;
+    this.age = age;
+  }
+
   // getters
   public String getName() {
     return name;

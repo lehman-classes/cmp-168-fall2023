@@ -12,6 +12,18 @@ class Dog extends Animal {
     System.out.println("name: " + getName());
   }
 
+  Dog(String name) {
+    super(name);
+    System.out.println("A new dog has been created!");
+    System.out.println("name: " + getName());
+  }
+
+  Dog(String name, double weight, double height, boolean isVac, int age) {
+    super(name, weight, height, isVac, age);
+    System.out.println("A new dog has been created!");
+    System.out.println("name: " + getName());
+  }
+
   public void barkAt(String name) {
     super.barkAt(name);
     // System.out.println("CHILD: The dog barks at " + name);
@@ -35,5 +47,21 @@ class Dog extends Animal {
   // public String toString() {
   // super.toString();
   // return "toString(): - Dog: " + getName();
+  // }
+
+  // public class DogLeg {
+  // private int length;
+  //
+  // public DogLeg(int length) {
+  // this.length = length;
+  // }
+  //
+  // public int getLength() {
+  // return length;
+  // }
+  //
+  // public void setLength(int length) {
+  // this.length = length;
+  // }
   // }
 }
