@@ -40,9 +40,25 @@ class App {
     System.out.println("Select from the following options: ");
     System.out.println("1. List Houses");
     System.out.println("2. List People");
-    System.out.println("3. Delete a contact");
+    System.out.println("3. Create a person");
     System.out.println("4. Display all contacts");
     System.out.println("5. Exit");
+  }
+
+  public void createPersonPrompt() {
+    Scanner scanner = new Scanner(System.in);
+    try {
+
+      System.out.println("Enter the person's name: ");
+      String name = scanner.next();
+      System.out.println("Enter the person's age: ");
+      int age = scanner.nextInt();
+      Person person = new Person(name, age);
+    } catch (Exception e) {
+      System.out.println("Invalid input. Please try again.");
+    } finally {
+      // scanner.close();
+    }
   }
 
   public static void main(String[] args) {
@@ -55,9 +71,9 @@ class App {
     displayMenu();
 
     // Get user input
-    Scanner scanner = new Scanner(System.in);
-    int option = scanner.nextInt();
     while (true) {
+      Scanner scanner = new Scanner(System.in);
+      int option = scanner.nextInt();
       if (validateInput(option)) {
         switch (option) {
           case 1:
@@ -78,7 +94,9 @@ class App {
             }
             break;
           case 3:
-            System.out.println("Delete a contact");
+            System.out.println("Creating a person");
+            app.createPersonPrompt();
+
             break;
           case 4:
             System.out.println("Display all contacts");
