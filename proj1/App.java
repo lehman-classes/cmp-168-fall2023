@@ -2,6 +2,17 @@ import java.util.Scanner;
 
 class App {
 
+  private House[] houses = new House[10];
+  private Person[] people = new Person[10];
+
+  public void setHouses(House[] houses) {
+    this.houses = houses;
+  }
+
+  public void setPeople(Person[] people) {
+    this.people = people;
+  }
+
   private static boolean validateInput(int input) {
     // input must be the numbers 1 through 5
     // input must be a number
@@ -27,14 +38,20 @@ class App {
     System.out.print("\033[H\033[2J");
     System.out.flush();
     System.out.println("Select from the following options: ");
-    System.out.println("1. Add a new contact");
-    System.out.println("2. Search for a contact");
+    System.out.println("1. List Houses");
+    System.out.println("2. List People");
     System.out.println("3. Delete a contact");
     System.out.println("4. Display all contacts");
     System.out.println("5. Exit");
   }
 
   public static void main(String[] args) {
+
+    App app = new App();
+
+    House[] houses = { new House(), new House(), new House() };
+    Person[] people = { new Person("Thing One"), new Person("Thing Two"), new Person("Thing Three") };
+
     displayMenu();
 
     // Get user input
@@ -44,10 +61,21 @@ class App {
       if (validateInput(option)) {
         switch (option) {
           case 1:
-            System.out.println("Add a new contact");
+            System.out.println("List Houses");
+
+            for (int i = 0; i < houses.length; i++) {
+              System.out.println(i + 1 + ". " + houses[i]);
+            }
+
+            int selection = scanner.nextInt();
+            System.out.println("You selected: " + houses[selection - 1]);
+
             break;
           case 2:
-            System.out.println("Search for a contact");
+            System.out.println("List People");
+            for (Person person : people) {
+              System.out.println(person);
+            }
             break;
           case 3:
             System.out.println("Delete a contact");
