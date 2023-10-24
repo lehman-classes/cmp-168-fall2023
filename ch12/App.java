@@ -6,6 +6,8 @@ import java.io.FileReader;
 
 class App {
 
+  private int number = 0;
+
   public static void duplicateFile(File source, File target) {
     Scanner scanner = null;
     FileWriter writer = null;
@@ -30,6 +32,14 @@ class App {
         }
       }
     }
+  }
+
+  public void setNumber(int number) {
+    this.number = number;
+  }
+
+  public int getNumber() {
+    return number;
   }
 
   public static void appendNewLines(File file, int howManyLines) {
@@ -57,6 +67,8 @@ class App {
     String line = "";
     Person[] people = new Person[5];
     int index = 0;
+    // using instance variable
+    // System.out.println(number);
     try {
       input = new Scanner(file);
       while (input.hasNext()) {
@@ -119,15 +131,20 @@ class App {
     File file;
     Scanner scanner = null;
     FileWriter writer = null;
+    App app = new App();
+    App app2 = new App();
+    app.setNumber(10);
+    app2.setNumber(20);
+    System.out.println(app.getNumber());
+    System.out.println(app2.getNumber());
     try {
-
       // fileUpdater
       File source = new File("data/data.txt");
       File target = new File("data/data_updated.txt");
       duplicateFile(source, target);
       appendNewLines(target, 5);
       // readDataFile(source);
-      Person[] people = getPeopleFromFile(source);
+      Person[] people = getPeopleFromFile(target);
       int count = 0;
       for (Person person : people) {
         if (person != null) {
