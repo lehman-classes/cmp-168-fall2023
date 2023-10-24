@@ -52,6 +52,46 @@ class App {
     }
   }
 
+  public static Person[] getPeopleFromFile(File file) {
+    Scanner input = null;
+    String line = "";
+    Person[] people = new Person[5];
+    int index = 0;
+    try {
+      input = new Scanner(file);
+      while (input.hasNext()) {
+        line = input.nextLine();
+        String[] data = line.split(",");
+        // safely make sure that this line is valid data. Meaning a Person object can be
+        // created from this line.
+        if (data.length == 3) {
+          // if the array is full, create a new array that is twice the size of the
+          // current array
+          if (index >= people.length) {
+            Person[] newPeople = new Person[people.length * 2];
+            for (int i = 0; i < people.length; i++) {
+              newPeople[i] = people[i];
+            }
+            people = newPeople;
+          }
+          // create a new Person object and add it to the array
+          people[index] = new Person(data[0].trim(), data[1].trim(), Integer.parseInt(data[2].trim()));
+          index++;
+        } else {
+          System.out.println("Invalid data in file.");
+          continue;
+        }
+      }
+    } catch (IOException ioe) {
+      System.out.println("Error while reading from file: " + ioe);
+    } finally {
+      if (input != null) {
+        input.close();
+      }
+    }
+    return people;
+  }
+
   public static void readDataFile(File file) {
     Scanner input = null;
     String line = "";
@@ -86,7 +126,16 @@ class App {
       File target = new File("data/data_updated.txt");
       duplicateFile(source, target);
       appendNewLines(target, 5);
-      readDataFile(source);
+      // readDataFile(source);
+      Person[] people = getPeopleFromFile(source);
+      int count = 0;
+      for (Person person : people) {
+        if (person != null) {
+          System.out.println(person.getName());
+          count++;
+        }
+      }
+      System.out.println("Total number of people: " + count);
 
       file = new File("data/test.txt");
       file.createNewFile(); // if file exists, this doesn't do anything

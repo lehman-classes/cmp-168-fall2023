@@ -18,7 +18,8 @@ class Person {
     this.age = age;
   }
 
+  @Override
   public String toString() {
-    return "Name: " + this.name + ", Age: " + this.age;
+    return "Name: %30s | %4d";
   }
 }
