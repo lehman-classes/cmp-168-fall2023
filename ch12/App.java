@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.io.FileReader;
 
 class App {
 
@@ -51,6 +52,28 @@ class App {
     }
   }
 
+  public static void readDataFile(File file) {
+    Scanner input = null;
+    String line = "";
+    try {
+      input = new Scanner(file);
+      while (input.hasNext()) {
+        line = input.nextLine();
+        String[] data = line.split(",");
+        System.out.println("Name: " + data[0]);
+        System.out.println("Address: " + data[1]);
+        System.out.println("Zip: " + data[2]);
+      }
+    } catch (IOException ioe) {
+      System.out.println("Error while reading from file: " + ioe);
+    } finally {
+      if (input != null) {
+        input.close();
+      }
+    }
+
+  }
+
   public static void main(String[] args) {
 
     File file;
@@ -63,6 +86,7 @@ class App {
       File target = new File("data/data_updated.txt");
       duplicateFile(source, target);
       appendNewLines(target, 5);
+      readDataFile(source);
 
       file = new File("data/test.txt");
       file.createNewFile(); // if file exists, this doesn't do anything
