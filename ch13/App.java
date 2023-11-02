@@ -87,6 +87,24 @@ class App {
     objects[3] = true; // new Boolean(true);
     objects[4] = 'a'; // new Character('a');
     for (int i = 0; i < objects.length; i++) {
+      Object obj = objects[i];
+      if (obj instanceof String) {
+        String str = (String) obj;
+        System.out.println(str);
+      } else if (obj instanceof Integer) {
+        Integer num = (Integer) obj;
+        System.out.println(num);
+      } else if (obj instanceof Double) {
+        Double num = (Double) obj;
+        System.out.println(num);
+      } else if (obj instanceof Boolean) {
+        Boolean bool = (Boolean) obj;
+        System.out.println(bool);
+      } else if (obj instanceof Character) {
+        Character ch = (Character) obj;
+        System.out.println(ch);
+
+      }
       System.out.println(objects[i].getClass().getSimpleName());
     }
 
