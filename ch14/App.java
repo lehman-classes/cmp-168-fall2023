@@ -43,6 +43,15 @@ class App {
     panel.setBackground(Color.YELLOW); // Sets background to yellow
     panel.setBorder(BorderFactory.createLineBorder(Color.BLUE)); // Sets border to blue
 
+    panel.addMouseMotionListener(new MouseMotionListener() {
+      public void mouseMoved(MouseEvent e) {
+        System.out.printf("Mouse moved to (%d, %d)\n", e.getX(), e.getY());
+      }
+
+      public void mouseDragged(MouseEvent e) {
+        System.out.printf("Mouse dragged to (%d, %d)\n", e.getX(), e.getY());
+      }
+    });
     System.out.printf("frame.layout: %s\n", frame.getLayout().getClass().getName());
     System.out.printf("panel.layout: %s\n", panel.getLayout().getClass().getName());
 
