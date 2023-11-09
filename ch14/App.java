@@ -17,6 +17,7 @@ class App {
     frame.setSize(500, 500);
 
     JButton button = new JButton("Press");
+
     button.setSize(200, 400);
     button.addActionListener(new ButtonListener()); // Class that implements ActionListener - separate class
     // button.addActionListener(new MyActionListener()); // Class that implements
