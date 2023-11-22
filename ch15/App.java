@@ -1,21 +1,5 @@
 class App {
 
-  class Person {
-    String name;
-
-    Person(String name) {
-      this.name = name;
-    }
-
-    public String getName() {
-      return this.name;
-    }
-
-    public void setName(String name) {
-      this.name = name;
-    }
-  }
-
   public static void printHello(String name) {
     name = "Jane";
     System.out.printf("Hello, %s\n", name);
@@ -31,6 +15,32 @@ class App {
     b = 20;
     int total = a + b;
     return total;
+  }
+
+  public static int recursive(int n) {
+    if (n == 0) {
+      return 0;
+    }
+    System.out.printf("n: %d\n", n);
+    return n + recursive(n - 1);
+  }
+
+  public static int iterative(int n) {
+    int total = 0;
+    for (int i = n; i > 0; i--) {
+      System.out.printf("i: %d\n", i);
+      total += i;
+    }
+    return total;
+  }
+
+  public static void recursive(String name) {
+    if (name.isEmpty()) {
+      return;
+    }
+    System.out.printf("name: %s\n", name);
+    name = name.substring(0, name.length() - 1);
+    recursive(name);
   }
 
   public static void main(String[] args) {
@@ -50,6 +60,14 @@ class App {
     System.out.printf("BEFORE\t- a: %d, b: %d\n", a, b);
     int sum = add(a, b);
     System.out.printf("AFTER\t- a: %d, b: %d\n", a, b);
+
+    int result = recursive(10);
+    System.out.printf("result: %d\n", result);
+
+    recursive("John");
+
+    int result2 = iterative(10);
+    System.out.printf("result2: %d\n", result2);
 
   }
 }
